@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+option csharp_namespace = "CoinPayProxy.Rpc";
+
+import "google/protobuf/empty.proto";
+import "coin_pay_proxy_common.proto";
+
+package CoinPayProxy;
+
+//链相关接口
+service CoinPayProxyer {
+ //获取Agreement配置
+ rpc GetAgreementConfig(google.protobuf.Empty) returns (GetAgreementConfigReply);
+
+  //生成地址
+  rpc GenerateAddress(GenerateAddressRequest) returns (GenerateAddressReply);
+
+  //查询地址代币(TRX\ETH\BNB)--(没有TRX\ETH\BNB时查不到)
+  rpc GetBalanceOfToken(GetBalanceOfTokenRequest) returns (GetBalanceOfTokenReply);
+
+  //获取用户的USDT的余额
+  rpc GetBalanceOfUSDT(GetBalanceOfUSDTRequest) returns (GetBalanceOfUSDTReply);
+
+  //转账代币
+  rpc TokenTransfer(TokenTransferRequest) returns (RpcReply);
+
+  //回收代币
+  rpc TokenRecycle(TokenRecycleRequest) returns (RpcReply);
+
+  //USDT归集
+  rpc UsdtSweeping(UsdtSweepingRequest) returns (RpcReply);
+
+  //批量USDT归集
+  rpc BatchUsdtSweeping(BatchUsdtSweepingRequest) returns (RpcReply);
+
+  //批量回收代币
+  rpc BatchTokenRecycle(BatchTokenRecycleRequest) returns (RpcReply);
+
+  //获取用户钱包归集列表
+  rpc GetMemberWalletList(GetMemberWalletListRequest) returns (GetMemberWalletListReply);
+}
+
+message GetAgreementConfigReply {
+	bool result = 1;
+	map<string, RpcAgreementConfig> items=2;
+}
+
+message GenerateAddressRequest {
+	int64 memberId = 1;	//用户ID
+	RpcAgreementTypeEnum agreement_type = 2;	//协议类型
+}
+
+message GenerateAddressReply {
+	bool result = 1;
+	RpcWalletAddress items = 2;
+}
+
+message TokenTransferRequest {
+  int64  member_id = 1;		//接收人用户ID
+  string amount = 2;	//金额
+  string token_address = 3; //转币地址
+  RpcAgreementTypeEnum agreement_type = 4;	//协议类型
+}
+
+message TokenRecycleRequest {
+  int64  member_id = 1;			//回收人用户ID
+  string amount = 2;	//金额
+  string recycle_address = 3; //收币地址
+  RpcAgreementTypeEnum agreement_type = 4;	//协议类型
+}
+
+message GetBalanceOfTokenRequest {
+  int64 member_id = 1;
+  RpcAgreementTypeEnum agreement_type = 2;    //协议类型
+}
+
+message GetBalanceOfTokenReply {
+  int64 member_id = 1;
+  string address = 2;
+  string amount = 3;
+  RpcCurrencyEnum currency=4;
+}
+
+message GetBalanceOfUSDTRequest {
+  int64 member_id = 1;
+  RpcAgreementTypeEnum agreement_type = 2;    //协议类型
+}
+
+message GetBalanceOfUSDTReply {
+  int64 member_id = 1;
+  string address = 2;
+  string amount = 3;
+}
+
+message UsdtSweepingRequest {
+  int64 member_id = 1;	//要归集的用户ID
+  string amount = 2;	//金额
+  string sweeping_address = 3;	//归集地址
+ RpcAgreementTypeEnum agreement_type = 4;    //协议类型
+}
+
+message BatchUsdtSweepingRequest {
+	double usdt_num = 1;	//USDT大于N
+	double token_num = 2;		//Token大于N
+	string sweeping_address = 3;	//归集地址
+	RpcAgreementTypeEnum agreement_type = 4;	//协议类型
+}
+
+message BatchTokenRecycleRequest {
+	string recycle_address = 1; //收币地址
+	RpcAgreementTypeEnum agreement_type = 2;	//协议类型
+}
+
+message GetMemberWalletListRequest {
+	int64 memberId = 1;
+	repeated int64 memberIds = 2;
+	RpcAgreementTypeEnum agreementType = 3;
+	int32 page = 4;
+	int32 limit = 5;
+	int32 order_by = 6;	//1.USDT余额 2.Token余额 3.已归集USDT数量 4.已归集时间
+	bool desc = 7;
+	string address = 8;
+}
+
+message GetMemberWalletListReply {
+	repeated RpcMemberWalletDto items = 1;
+	int64 total = 2;
+}

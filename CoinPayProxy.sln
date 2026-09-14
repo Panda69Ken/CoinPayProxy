@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37516.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinPayProxy.Infrastructure", "CoinPayProxy.Infrastructure\CoinPayProxy.Infrastructure.csproj", "{6B571F33-88E9-4917-BAF2-DA158803C147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinPayProxy.Domain", "CoinPayProxy.Domain\CoinPayProxy.Domain.csproj", "{AA5A95AE-A88F-4AD5-BF5D-165FDE0494DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinPayProxy.Rpc", "CoinPayProxy.Rpc\CoinPayProxy.Rpc.csproj", "{96257E19-EE15-4D7E-809A-90E55377A96C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{CF8753E4-3A14-4B56-BB75-3BE27DFE67B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Protos\coin_pay_proxy_common.proto = Protos\coin_pay_proxy_common.proto
+		Protos\coin_pay_proxy.proto = Protos\coin_pay_proxy.proto
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B571F33-88E9-4917-BAF2-DA158803C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B571F33-88E9-4917-BAF2-DA158803C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B571F33-88E9-4917-BAF2-DA158803C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B571F33-88E9-4917-BAF2-DA158803C147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5A95AE-A88F-4AD5-BF5D-165FDE0494DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5A95AE-A88F-4AD5-BF5D-165FDE0494DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5A95AE-A88F-4AD5-BF5D-165FDE0494DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5A95AE-A88F-4AD5-BF5D-165FDE0494DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96257E19-EE15-4D7E-809A-90E55377A96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96257E19-EE15-4D7E-809A-90E55377A96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96257E19-EE15-4D7E-809A-90E55377A96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96257E19-EE15-4D7E-809A-90E55377A96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF8753E4-3A14-4B56-BB75-3BE27DFE67B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF8753E4-3A14-4B56-BB75-3BE27DFE67B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF8753E4-3A14-4B56-BB75-3BE27DFE67B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF8753E4-3A14-4B56-BB75-3BE27DFE67B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32E179B7-29A8-4638-B13C-96519EA3A4EC}
+	EndGlobalSection
+EndGlobal

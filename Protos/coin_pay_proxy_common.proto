@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+option csharp_namespace = "CoinPayProxy.Rpc";
+
+/******公共******/
+message RpcReply {
+	bool result=1;  
+    string msg = 2;
+}
+
+message IntRequest {
+  int32 id=1;
+}
+
+message BigIntRequest{
+  int64 id = 1;
+}
+
+/******Enum******/
+enum RpcAgreementTypeEnum {
+	RpcAgreementTypeEnum_Default=0;
+	TRC20=1;
+	ERC20=2;
+	BEP20=3;
+}
+
+enum RpcTransactionStatusEnum {
+	RpcTransactionStatusEnum_Default=0;
+	Success=1;
+	Processing=2;
+	Fail=3;
+	SweepingFail=4;
+}
+
+enum RpcTransactionTypeEnum {
+	RpcTransactionTypeEnum_Default=0;
+	//USDT充值
+	RechargeOrder=1;
+	//充值Token
+	RechargeToken=2;
+	//归集USDT
+	SweepingUSDT=3;
+	//回收Token
+	RecycleToken=4;
+}
+
+enum RpcCurrencyEnum {
+	RpcCurrencyEnum_Default=0;
+	USDT=1;
+	TRX=2;
+	ETH=3;
+	BNB=4;
+}
+
+
+/******Entity******/
+message RpcTransactionRecord {
+	int64 id=1;
+	int64 member_id=2;
+	string order_no=3;
+	string hash_id=4;
+	string from_address=5;
+	string to_address=6;
+	RpcAgreementTypeEnum agreement_type=7;
+	string contract_address=8;
+	string amount=9;
+	RpcTransactionStatusEnum status=10;
+	string currency=11;
+	string fee=12;
+	string fee_currency=13;
+	int64 create_time=14;
+	int64 modify_time=15;
+	int64 transaction_time=16;
+	RpcTransactionTypeEnum transaction_type=17;
+	int64 block_number=18;
+	bool notify_result=19;
+}
+
+message RpcWalletAddress {
+	int64 id=1;
+	int64 member_id=2;
+	string address=3;
+	string private_key=4;
+	RpcAgreementTypeEnum agreement_type=5;
+	int64 create_time=6;
+	bool is_sweeping=7;
+	int64 modify_time=8;
+	string sweeping_address=9;
+}
+
+message RpcMemberWalletDto {
+	int64 member_id=1;
+	RpcAgreementTypeEnum agreement_type=2;
+	string address=3;
+	string usdt_balance=4;	//余额 单位USDT
+	string token_balance=5;	//Token余额 单位TRX\EHT\BNB
+	string sweeping_balance=6;	//已归集数量
+	int64 sweeping_time=7;	//最近归集时间
+	bool is_sweeping=8;	//是否归集中
+	string last_recharge_amount=9;	//最近充U数量
+	int64 last_recharge_time=10;	//最近充U时间
+}
+
+message RpcAgreementConfig {
+	string contract=1;
+	string website_url=2;
+	repeated string sweeping_address=3;
+	repeated RpcRechargeTokensInfo recharge_tokens=4;
+	RpcCurrencyEnum currency=5;
+}
+message RpcRechargeTokensInfo {
+	string token_address=1;
+	string private_key=2;
+}
