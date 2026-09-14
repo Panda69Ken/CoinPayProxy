@@ -82,7 +82,7 @@ namespace TestProject1
                 //TokenAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //TokenAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
+                //TokenAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -102,7 +102,7 @@ namespace TestProject1
                 //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
+                //RecycleAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -122,7 +122,7 @@ namespace TestProject1
                 //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
+                //SweepingAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -143,7 +143,7 @@ namespace TestProject1
                 //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
+                //SweepingAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -161,7 +161,7 @@ namespace TestProject1
                 //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
+                //RecycleAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
