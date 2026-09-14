@@ -76,9 +76,13 @@ namespace TestProject1
             {
                 MemberId = 2000,
                 Amount = "0.1",
-                TokenAddress = "TAkyQrhTAu8gm9Z4n9QmiwXXKec2Av1VTz",
+                TokenAddress = "TDsaxktUT2rSWXfEGz6h5dHSkuin2hni7k",
                 AgreementType = RpcAgreementTypeEnum.Trc20
+
+                //TokenAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
+
+                //TokenAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -92,9 +96,13 @@ namespace TestProject1
             {
                 MemberId = 2000,
                 Amount = "0.1",
-                RecycleAddress = "TAkyQrhTAu8gm9Z4n9QmiwXXKec2Av1VTz",
+                RecycleAddress = "TDsaxktUT2rSWXfEGz6h5dHSkuin2hni7k",
                 AgreementType = RpcAgreementTypeEnum.Trc20
+
+                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
+
+                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -108,9 +116,13 @@ namespace TestProject1
             {
                 MemberId = 2000,
                 Amount = "0.1",
-                SweepingAddress = "TAkyQrhTAu8gm9Z4n9QmiwXXKec2Av1VTz",
+                SweepingAddress = "TDsaxktUT2rSWXfEGz6h5dHSkuin2hni7k",
                 AgreementType = RpcAgreementTypeEnum.Trc20
+
+                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
+
+                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -125,13 +137,13 @@ namespace TestProject1
                 UsdtNum = 10,
                 TokenNum = 30,
 
-                SweepingAddress = "TAkyQrhTAu8gm9Z4n9QmiwXXKec2Av1VTz",
+                SweepingAddress = "TDsaxktUT2rSWXfEGz6h5dHSkuin2hni7k",
                 AgreementType = RpcAgreementTypeEnum.Trc20
 
-                //SweepingAddress = "0x2635c7F735EE7Ede6D0B3baE4Be93EBA7EAFd76c",
+                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //SweepingAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
+                //SweepingAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
@@ -143,13 +155,13 @@ namespace TestProject1
         {
             var result = await _coinPayProxyerClient.BatchTokenRecycleAsync(new BatchTokenRecycleRequest
             {
-                RecycleAddress = "TAkyQrhTAu8gm9Z4n9QmiwXXKec2Av1VTz",
+                RecycleAddress = "TDsaxktUT2rSWXfEGz6h5dHSkuin2hni7k",
                 AgreementType = RpcAgreementTypeEnum.Trc20
 
-                //RecycleAddress = "0x2635c7F735EE7Ede6D0B3baE4Be93EBA7EAFd76c",
+                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Erc20
 
-                //RecycleAddress = "0x53a037C8e9646459b6179A67155d396bCD50c07D",
+                //RecycleAddress = "0xfb26a58c724eb5791d7070e23309ff62146fc11d",
                 //AgreementType = RpcAgreementTypeEnum.Bep20
             });
 
