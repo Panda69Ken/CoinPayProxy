@@ -1,17 +1,59 @@
 # CoinPayProxy
-CoinPayProxy 是一个基于 .NET 开发的虚拟币代理充值系统，主要面向数字资产充值、区块链地址管理及链上交易监听等场景。
 
-### 简介
-CoinPayProxy 是一个基于 .NET 开发的虚拟币代理充值系统，主要面向数字资产充值、区块链地址管理及链上交易监听等场景。
+**CoinPayProxy** 是一个基于 **.NET** 开发的虚拟币代理充值系统，主要面向数字资产充值、区块链地址管理及链上交易监听等场景。
 
 目前已集成：
+
 - **TRC20**
 - **ERC20**
 - **BEP20**
 
 支持地址生成、USDT充值、原生币充值、区块扫描、交易确认、Token 归集等核心功能。
 
-项目采用模块化设计，将不同区块链网络的 地址管理、区块扫描、交易解析、充值确认、资产归集 等功能进行抽象，方便后续扩展更多 EVM 链及其他区块链网络。
+项目采用模块化设计，将不同区块链网络的 **地址管理、区块扫描、交易解析、充值确认、资产归集** 等功能进行抽象，方便后续扩展更多 EVM 链及其他区块链网络。
+
+---
+
+
+# ⚠️ 安全特别提醒
+
+> ### 🚨 特别注意！特别注意！特别注意！
+>
+> **本项目为了方便开发、调试和测试，配置文件中的部分敏感信息默认没有进行加密处理。**
+>
+> 其中可能涉及：
+>
+> - 🔑 私钥（Private Key）
+> - 📝 助记词（Mnemonic）
+> - 🌐 RPC / API Key
+> - 💰 钱包相关敏感配置
+> - 🔐 其他链上操作凭证
+>
+> **请不要直接将当前测试配置用于生产环境！**
+>
+> 一旦私钥、助记词等核心凭证泄露，攻击者可能直接控制对应的钱包资产，**项目本身无法挽回由密钥泄露造成的链上资产损失。**
+>
+> ### 🛡️ 正式生产环境必须做好安全加固
+>
+> 建议至少做到：
+>
+> - 敏感配置加密存储
+> - 私钥 / 助记词与普通业务配置隔离
+> - 生产环境禁止提交真实密钥到 Git
+> - 使用环境变量或专业 Secret 管理方案
+> - 限制生产服务器及配置文件访问权限
+> - 对核心钱包进行权限隔离
+> - 做好密钥备份及轮换机制
+> - 日志中严禁输出私钥、助记词等敏感信息
+> - 对归集钱包、运营钱包等进行分层管理
+>
+> **千万不要因为测试环境能跑，就直接把配置复制到生产环境。**
+>
+> ### ⚡ 不注意安全，链上的资产可不会给你第二次机会。
+>
+> **不注意安全会摔得很疼的。😅**
+>
+> **请务必先做好安全加固，再用于生产环境。**
 
 ---
 
@@ -82,7 +124,7 @@ CoinPayProxy 是一个基于 .NET 开发的虚拟币代理充值系统，主要�
 - 交易状态确认
 - 已确认 / 已固化交易处理
 
-通过 Redis（这里通过Sqlite代替，自用需自行替换） 自增机制维护扫描进度，保证服务重启或异常情况下能够继续从上次区块位置进行扫描，降低漏扫区块的风险。
+通过 Redis（这里使用Sqlite代替，自用需自行替换） 自增机制维护扫描进度，保证服务重启或异常情况下能够继续从上次区块位置进行扫描，降低漏扫区块的风险。
 
 ---
 
@@ -193,7 +235,7 @@ TRON 与 Ethereum / BSC 等 EVM 网络虽然地址表现形式不同，但底层
 
 ---
 
-### 多链统一抽象
+## 多链统一抽象
 
 对于 Ethereum、BSC 等 EVM 网络，尽可能复用统一的区块扫描、交易解析及充值处理流程。
 
@@ -259,33 +301,64 @@ Token Sweeping
 
  ### 注意事项
 
-dll文件是[TronNet](https://github.com/Panda69Ken/TronNet)的发布版DLL，可自行下载补发替换
+dll文件是[TronNet - Panda69Ken](https://github.com/Panda69Ken/TronNet)的发布版DLL，可自行下载补发替换
 
 [MediatR](https://github.com/LuckyPennySoftware/MediatR)使用了有限制版本，可使用低版本代替
 
-项目使用Sqlite代替数据存储，自行根据情况替换数据中间件
+项目使用 `Sqlite` 代替数据存储，自行根据情况替换数据中间件
 
 ---
 
-### 使用到的开完库
+## ⚙️ 技术栈
 
-[FreeSql](https://github.com/dotnetcore/FreeSql) ![Github stars](https://img.shields.io/github/stars/dotnetcore/FreeSql?style=social)
+项目基于 **.NET / C#** 开发。
 
-[NLog](https://github.com/NLog/NLog) ![Github stars](https://img.shields.io/github/stars/NLog/NLog?style=social)
+主要使用的开源库：
 
-[Quartz](https://github.com/quartznet/quartznet) ![Github stars](https://img.shields.io/github/stars/quartznet/quartznet?style=social)
+### FreeSql
 
-[Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) ![Github stars](https://img.shields.io/github/stars/JamesNK/Newtonsoft.Json?style=social)
+轻量、功能丰富的 .NET ORM。
+[FreeSql](https://github.com/dotnetcore/FreeSql?utm_source=chatgpt.com)
 
-[MediatR](https://github.com/LuckyPennySoftware/MediatR) ![Github stars](https://img.shields.io/github/stars/LuckyPennySoftware/MediatR?style=social)
+### NLog
 
-[Nethereum](https://github.com/Nethereum/Nethereum) ![Github stars](https://img.shields.io/github/stars/Nethereum/Nethereum?style=social)
+.NET 日志组件。
+[NLog](https://github.com/NLog/NLog?utm_source=chatgpt.com)
 
-TronNet 原库很久没更新维护，使用的是自己Fork的版本
-[TronNet](https://github.com/Panda69Ken/TronNet) ![Github stars](https://img.shields.io/github/stars/Panda69Ken/TronNet?style=social)
+### Quartz.NET
+
+.NET 定时任务调度框架。
+[Quartz.NET](https://github.com/quartznet/quartznet?utm_source=chatgpt.com)
+
+### Newtonsoft.Json
+
+.NET JSON 序列化与反序列化组件。
+[Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json?utm_source=chatgpt.com)
+
+### MediatR
+
+.NET 中常用的 Mediator 实现，用于降低模块之间的耦合。
+[MediatR](https://github.com/LuckyPennySoftware/MediatR?utm_source=chatgpt.com)
+
+### Nethereum
+
+Ethereum / EVM 生态的 .NET 开发库。
+[Nethereum](https://github.com/Nethereum/Nethereum?utm_source=chatgpt.com)
+
+### TronNet
+
+由于原始 TronNet 项目长期缺少维护，因此项目使用了基于原项目进行维护和扩展的 Fork 版本。
+[TronNet - Panda69Ken Fork](https://github.com/Panda69Ken/TronNet?utm_source=chatgpt.com)
 
 ---
 
 ## AD -- Telegram机器人推广
 能量租赁交易监控机器人：[USDT、TRX交易监控](https://t.me/TronListen_bot)
 > 监控波场地址余额变化，小额能量租赁！！！
+主要功能：
+
+- TRX 交易监控
+- USDT 交易监控
+- 地址余额变化监控
+- 能量租赁交易监控
+- TRON 资源变化监控
